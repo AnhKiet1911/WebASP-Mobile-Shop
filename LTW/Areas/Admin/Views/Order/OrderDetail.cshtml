@@ -1,0 +1,39 @@
+﻿@model IEnumerable<LTW.Models.OrderDetailPro>
+@{
+    ViewBag.Title = "OrderDetail";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="panel panel-warning">
+    <div class="panel-heading text-center">
+        <h2> Chi tiết đơn hàng</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Hình ảnh</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+                <th>Tổng tiền</th>
+                <th>Chi tiết</th>
+            </tr>
+            @{int i = 0;
+            }
+            @foreach (var p in Model)
+            {
+                i++;
+                <tr>
+                    <td>@i</td>
+                    <td>@p.Tensanpham.</td>
+                    <td><img class="img-item" src="~/Areas/Admin/content/phone/@p.ProId/nho.png" /></td>
+                    <td>@p.Soluong</td>
+                    <td>@p.Price</td>
+                    <td>@p.Amount</td>
+                    <td><a href="@Url.Action("Change", new { ID = @p.OrderId })"> Xác nhận </a></td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

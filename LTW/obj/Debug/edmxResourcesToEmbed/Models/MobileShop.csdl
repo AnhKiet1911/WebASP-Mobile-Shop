@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MobileShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="HangSanXuat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenHang" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="trangthai" Type="Int32" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Order__UserID__2B3F6F97" FromRole="Order" ToRole="User" />
+    <NavigationProperty Name="OrderDetails" Relationship="MobileShopModel.FK__OrderDeta__Order__2C3393D0" FromRole="Order" ToRole="OrderDetail" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSanPham" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MoTaNgan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gia" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="LuotXem" Type="Int32" />
+    <Property Name="LuotMua" Type="Int32" />
+    <Property Name="NgayCapNhat" Type="DateTime" Precision="3" />
+    <Property Name="IDLoai" Type="Int32" Nullable="false" />
+    <Property Name="IDHang" Type="Int32" Nullable="false" />
+    <Property Name="MoTaChiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="OrderDetails" Relationship="MobileShopModel.FK__OrderDeta__ProID__2D27B809" FromRole="SanPham" ToRole="OrderDetail" />
+    <Property Name="TinhTrang" Type="Int32" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="Level" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Order__UserID__2B3F6F97" FromRole="User" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK__Order__UserID__2B3F6F97">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MobileShopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="HangSanXuats" EntityType="Self.HangSanXuat" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="SanPhams" EntityType="Self.SanPham" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__Order__UserID__2B3F6F97" Association="Self.FK__Order__UserID__2B3F6F97">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <EntitySet Name="OrderDetails" EntityType="MobileShopModel.OrderDetail" />
+    <AssociationSet Name="FK__OrderDeta__Order__2C3393D0" Association="MobileShopModel.FK__OrderDeta__Order__2C3393D0">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDeta__ProID__2D27B809" Association="MobileShopModel.FK__OrderDeta__ProID__2D27B809">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="OrderDetail" EntitySet="OrderDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="ProID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Order" Relationship="MobileShopModel.FK__OrderDeta__Order__2C3393D0" FromRole="OrderDetail" ToRole="Order" />
+    <NavigationProperty Name="SanPham" Relationship="MobileShopModel.FK__OrderDeta__ProID__2D27B809" FromRole="OrderDetail" ToRole="SanPham" />
+  </EntityType>
+  <Association Name="FK__OrderDeta__Order__2C3393D0">
+    <End Type="MobileShopModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="MobileShopModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDeta__ProID__2D27B809">
+    <End Type="MobileShopModel.SanPham" Role="SanPham" Multiplicity="1" />
+    <End Type="MobileShopModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="ProID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

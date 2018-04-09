@@ -1,0 +1,44 @@
+﻿@using LTW.Models
+@model IList<SanPham>
+
+@{
+    ViewBag.Title = "getAllMobile";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-warning">
+    <div class="panel-heading text-center">
+        <h2> Danh sách Điện thoại</h2>
+    </div>
+    <div class="panel-heading">
+        <a class="addPro" href="@Url.Action("addProductMobile", "Products")">Thêm sản phẩm</a>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Hình ảnh</th>
+            </tr>
+            @{int i = 0;
+            }
+            @foreach(var p in Model)
+            {
+                i++;
+                <tr>
+                    <td>@i</td>
+                    <td>@p.TenSanPham</td>
+                    <td>@p.Gia</td>
+                    <td>@p.SoLuong</td>
+                    <td><img class="img-item" src="~/Public/images/products/sp/@p.ID/nho.png" /></td>
+                    <td><a href="@Url.Action("Details", new { ID = @p.ID })">Xem</a></td>
+                    <td><a href="@Url.Action("DeleteMobile", new { ID = @p.ID })">Delete</a></td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

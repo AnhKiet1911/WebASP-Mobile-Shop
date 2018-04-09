@@ -1,0 +1,50 @@
+﻿@using LTW.Models
+@model IList<SanPham>
+
+
+<div class="special-products">
+
+    <div class="s-products-head">
+        <div class="s-products-head-left">
+            <h3>SẢN PHẨM <span>CÙNG LOẠI</span></h3>
+        </div>
+        <div class="s-products-head-right">
+            <a href="@Url.Action("getAllProducts", "Product")"><span> </span>Xem tất cả</a>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <!----special-products-grids---->
+    <div class="special-products-grids">
+        @if (Model == null)
+        {
+            @:Không có sản phẩm nào
+
+        }
+        else
+        {
+            foreach (var pro in Model)
+            {
+                <div class="col-md-3 special-products-grid text-center">
+                    <a class="brand-name" href="@Url.Action("DetailsProduct", "Product", new { proId = pro.ID })"><img src="../public/images/logo/@{@pro.IDHang}.png" class="img_logo" title="name" /></a>
+                    <a class="product-here" href="@Url.Action("DetailsProduct", "Product", new { proId = pro.ID })"><img src="../public/images/products/sp/@pro.ID/nho.png" title="product-name" /></a>
+                    <h4><a href="@Url.Action("DetailsProduct", "Product", new { proId = pro.ID })">@pro.TenSanPham</a></h4>
+                    @if (pro.SoLuong == 0)
+                    {
+                        <a class="product-err" href="javascript:void(0)"><span>@string.Format("{0:C0}", pro.Gia)</span><small>Hết Hàng</small><label> </label></a>
+                    }
+                    else
+                    {
+                        <a class="product-btn" data-proId="@pro.ID" href="javascript:"><span>@string.Format("{0:C0}", pro.Gia)</span><small>Mua Ngay</small><label> </label></a>
+                    }  
+                </div>
+            }
+        }
+
+        <div class="clearfix"> </div>
+    </div>
+    <!---//special-products-grids---->
+</div>  
+
+
+
+

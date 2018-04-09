@@ -1,0 +1,89 @@
+﻿@import url(http://fonts.googleapis.com/css?family=Fauna+One|Muli);
+#mainform{
+width:960px;
+margin:20px auto;
+padding-top:20px;
+font-family: 'Fauna One', serif;
+display:block;
+}
+
+.h3-form{
+font-size:18px;
+text-align:center;
+text-shadow:1px 0px 3px gray;
+}
+#onclick{
+cursor:pointer;
+box-shadow:1px 1px 5px grey;
+border-radius:3px;
+}
+
+.form{
+border-radius:2px;
+padding:15px 30px;
+box-shadow:0 0 15px;
+font-size:14px;
+font-weight:bold;
+width:350px;
+margin:20px 250px 0 35px;
+float:left;
+}
+#contact input{
+width:100%;
+height:35px;
+margin-top:3px;
+margin-bottom: 7px;
+border:1px solid #999;
+border-radius:3px;
+padding:5px;
+}
+#contact input[type=button], #contact input[type=submit]{
+background-color:#123456;
+border:1px solid white;
+font-family: 'Fauna One', serif;
+font-Weight:bold;
+font-size:18px;
+color:white;
+width:49%;
+}
+
+#contactdiv{
+opacity:0.92;
+position: fixed;
+top: 0px;
+left: 0px;
+height: 100%;
+width: 100%;
+background: rgba(0,0,0,.25);
+display: none;
+}
+#logindiv{
+opacity:0.92;
+position: absolute;
+top: 0px;
+left: 0px;
+height: 100%;
+width: 100%;
+background: #000;
+display: none;
+}
+
+#login,#contact{
+width:350px;
+margin:0px;
+background-color:white;
+font-family: 'Fauna One', serif;
+position: relative;
+border: 5px solid rgb(90, 158, 181);
+}
+#contact .img{
+float: right;
+margin-top: -35px;
+margin-right: -37px;
+}
+#contact{
+left: 50%;
+top: 45%;
+margin-left:-210px;
+margin-top:-255px;
+}

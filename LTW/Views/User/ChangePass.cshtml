@@ -1,0 +1,69 @@
+﻿@model LTW.Models.ChangePass
+
+@{
+    ViewBag.Title = "ChangePass";
+}
+
+<div class="panel panel-warning">
+    <div class="panel-heading text-center">
+        <h2>Đổi mật khẩu</h2>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("ChangePass", "User", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="col-md-offset-4">
+                <div style="color: #00ff21;">@ViewBag.comple</div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Username, "Nhập username:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-5">
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-offset-4">
+                        @Html.ValidationMessageFor(m => m.Username)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Password, "Nhập password:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-5">
+                        @Html.TextBoxFor(m => m.Password, new { @class = "form-control", type ="password" })
+                    </div>
+                    <div class="col-md-offset-4">
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.NewPassword, "Nhập password mới:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-5">
+                        @Html.TextBoxFor(m => m.NewPassword, new { @class = "form-control" , type = "password" })
+                    </div>
+                    <div class="col-md-offset-4">
+                        @Html.ValidationMessageFor(m => m.NewPassword)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.RePassword, "Nhập lại:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-5">
+                        @Html.TextBoxFor(m => m.RePassword, new { @class = "form-control" , type = "password" })
+                    </div>
+                    <div class="col-md-offset-4">
+                        @Html.ValidationMessageFor(m => m.RePassword)
+                    </div>
+                </div>
+            </div>
+                <div class="form-group">
+                    <div style="padding-left: 20px;" class="col-md-offset-4">
+                        <input type="submit" class="btn btn-success" value="Sửa" />
+                    </div>
+                </div>
+
+        }
+    </div>
+</div>

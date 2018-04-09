@@ -1,0 +1,58 @@
+﻿<link href="~/Public/css/login.css" rel="stylesheet" />
+
+<div class="overlay" style="display: none;">
+    <div class="login-wrapper" id="shake">
+        <div class="login-content">
+            <a class="close btn btn-danger" role="button" ><i class="fa fa-close"></i></a>
+            <h3>Sign in</h3>
+            <span id="error-login"></span>
+            <form class="frmLogin" method="post" action="">
+                <label for="username">
+                    Username:
+                    <input type="text" name="Username" id="Username" placeholder="Username must be between 8 and 20 characters" pattern = "^[a-zA-Z][a-zA-Z0-9-_\.]{5,20}$" required = "required" />
+                </label>
+                <label for="password">
+                    Password:
+                    <input type="password" name="Password" id="Password" placeholder = "Password not empty"  required = "required" />
+                </label>
+                <button type="submit" id="btnLogin">Sign in</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var href = "localhost:50535/Admin/Products/getAllMobile";
+    $(document).ready(function () {
+
+        $('#btnLogin').click(function () {
+            var dataL = {
+                "Username": $("#Username").val(),
+                "Password": $("#Password").val()
+            };
+            $("#btnLogin").val("Connecting...");
+            if (dataL.Username !== "" && dataL.Password !== "") {
+                $.ajax({
+                    url: "@Url.Action("Login", "User")",
+                    type: "POST",
+                    data: JSON.stringify(dataL),
+                    dataType: "json",
+                    contentType: "application/json",
+                    success: function (responseL) {
+                        console.log(responseL);
+                        if (responseL.data == "true") {
+                            window.location.reload();
+                        }
+                        else {
+                            $("#shake").effect("shake");
+                            $("#error-login").html("Email hoặc password không hợp lệ.");
+                            $("#error-login").css("color", "red");
+                            $("#btnLogin").val("Sign in");
+                        }
+                    }
+
+                });
+            }
+            return false;
+        });
+    });
+</script>

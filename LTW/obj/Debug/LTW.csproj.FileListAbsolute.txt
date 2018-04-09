@@ -1,0 +1,103 @@
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\csc.exe
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\csc.exe.config
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\csc.rsp
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\csi.exe
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\csi.rsp
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\System.AppContext.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\vbc.exe
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\vbc.exe.config
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\vbc.rsp
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\VBCSCompiler.exe
+C:\Users\nguye\Desktop\LTW\LTW\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\nguye\Desktop\LTW\LTW\bin\LTW.dll.config
+C:\Users\nguye\Desktop\LTW\LTW\bin\LTW.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\LTW.pdb
+C:\Users\nguye\Desktop\LTW\LTW\bin\EntityFramework.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\EntityFramework.SqlServer.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\System.Web.Helpers.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\System.Web.Mvc.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\System.Web.Razor.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\System.Web.Webpages.Deployment.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\System.Web.Webpages.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\System.Web.Webpages.Razor.dll
+C:\Users\nguye\Desktop\LTW\LTW\bin\EntityFramework.xml
+C:\Users\nguye\Desktop\LTW\LTW\bin\EntityFramework.SqlServer.xml
+C:\Users\nguye\Desktop\LTW\LTW\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\nguye\Desktop\LTW\LTW\bin\System.Web.Razor.xml
+C:\Users\nguye\Desktop\LTW\LTW\bin\System.Web.Webpages.xml
+C:\Users\nguye\Desktop\LTW\LTW\bin\System.Web.Webpages.Deployment.xml
+C:\Users\nguye\Desktop\LTW\LTW\bin\System.Web.Webpages.Razor.xml
+C:\Users\nguye\Desktop\LTW\LTW\bin\System.Web.Helpers.xml
+C:\Users\nguye\Desktop\LTW\LTW\bin\System.Web.Mvc.xml
+C:\Users\nguye\Desktop\LTW\LTW\obj\Debug\LTW.csprojResolveAssemblyReference.cache
+C:\Users\nguye\Desktop\LTW\LTW\obj\Debug\LTW.dll
+C:\Users\nguye\Desktop\LTW\LTW\obj\Debug\LTW.pdb
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\csc.exe
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\csc.exe.config
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\csc.rsp
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\csi.exe
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\csi.rsp
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\System.AppContext.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\vbc.exe
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\vbc.exe.config
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\vbc.rsp
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\VBCSCompiler.exe
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\LTW.dll.config
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\LTW.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\LTW.pdb
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\EntityFramework.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\EntityFramework.SqlServer.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\System.Web.Helpers.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\System.Web.Mvc.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\System.Web.Razor.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\System.Web.Webpages.Deployment.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\System.Web.Webpages.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\System.Web.Webpages.Razor.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\EntityFramework.xml
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\EntityFramework.SqlServer.xml
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\System.Web.Razor.xml
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\System.Web.Webpages.xml
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\System.Web.Webpages.Deployment.xml
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\System.Web.Webpages.Razor.xml
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\System.Web.Helpers.xml
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\bin\System.Web.Mvc.xml
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\obj\Debug\LTW.csprojResolveAssemblyReference.cache
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\obj\Debug\LTW.csproj.CoreCompileInputs.cache
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\obj\Debug\LTW.dll
+C:\Users\nguye\OneDrive\tài liệu lập trình\Web\Web 2\LTW\LTW\obj\Debug\LTW.pdb

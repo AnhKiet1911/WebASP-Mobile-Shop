@@ -1,0 +1,28 @@
+﻿@using LTW.Models
+@model IList<HangSanXuat>
+
+
+<ul class="top-nav">
+    <li><a href="@Url.Action("Index", "Home")">TRANG CHỦ </a><span> </span></li>
+    <li>
+        <a href="@Url.Action("getAllProductsMobile", "Product")">ĐIỆN THOẠI</a><span> </span>
+        <ul class="sub-menu">
+            @foreach (var cat in Model)
+            {
+                <li><a href="@Url.Action("getListProductsById", "Product", new {subId = 1, catId = cat.ID })">@cat.TenHang</a></li>              
+            }
+        </ul>
+    </li>
+    <li>
+        <a href="@Url.Action("getAllProductsTablet", "Product")">TABLET</a><span> </span>
+        <ul class="sub-menu">
+            @foreach (var cat in Model)
+            {
+                <li><a href="@Url.Action("getListProductsById", "Product", new { subId = 2, catId = cat.ID })">@cat.TenHang</a></li>
+            }
+        </ul>
+    </li>
+    <li><a href="javascript:void(0)">PHỤ KIỆN</a><span> </span></li>
+    <li><a href="javascript:void(0)">LIÊN HỆ</a></li>
+    <div class="clearfix"> </div>
+</ul>

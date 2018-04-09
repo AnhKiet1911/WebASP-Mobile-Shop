@@ -1,0 +1,97 @@
+﻿@model LTW.Models.Cart
+
+@{
+    ViewBag.Title = "detailCart";
+}
+<form method="post" name="frmUpdate" id="frmUpdate" action="@Url.Action("Update", "Cart")">
+    <input type="hidden" id="proIdU" name="proId"/>
+    <input type="hidden" id="quantity" name="quantity" value="" />
+</form>
+<form method="post" name="frmRemove" id="frmRemove" action="@Url.Action("Remove", "Cart")">
+    <input type="hidden" id="proIdR" name="proId" />
+</form>
+<div class="container">
+    <div class="special-products">
+        <div class="s-products-head">
+            <div class="s-products-head-left">
+                <h3><span>DETAIL CART</span></h3>
+            </div>
+            <div class="clearfix"> </div>
+       </div>
+        <div class="special-products-grids">
+            @if(Model.Item.Count == 0)
+            {
+                @:Giỏ hàng chưa có sản phẩm nào
+            }
+            else
+            {
+                <table class="table table-hover">
+                    <tr>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Giá</th>
+                        <th>Số Lượng</th>
+                        <th>Thành Tiền</th>
+                        <th></th>
+                    </tr>
+                    @foreach (var sanPham in Model.Item)
+                    {
+                        <tr>
+                            <td>@sanPham.Product.TenSanPham</td>
+                            <td>@sanPham.Product.Gia</td>
+                            <td><input type="number" min="1" max="10" value="@sanPham.Quantity" class="quantity" data-proId="@sanPham.Product.ID" /></td>
+                            <td>@(sanPham.Quantity * sanPham.Product.Gia)  </td>
+
+                            <td><a class="btn btn-danger btn-xs" name="btn-cart" href="javascript:" data-proId="@sanPham.Product.ID"><i class="fa fa-close"></i></a></td>
+
+                        </tr>
+                    }
+                </table>
+
+                <form class="form-horizontal" method="post" action="@Url.Action("CheckOut", "Cart")" id="frmCheckout">
+                    <a class="btn btn-primary" href="@Url.Action("Index", "Home")"><i class="fa fa-shopping-bag"></i>Tiếp Tục Mua Hàng</a>
+
+                    @if (!Html.isLogged())
+                    {
+                        <button type="submit" class="btn btn-danger" id="btnThanhToan" data-logged="false" data-redirect="cart"> <i class="fa fa-money"></i>Thanh Toán </button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn btn-danger" id="btnThanhToan" data-logged="true"> <i class="fa fa-money"></i>Thanh Toán </button>
+                    }
+                </form>
+
+            }
+            
+        </div>
+        </div>
+    
+</div>
+<script type="text/javascript">
+   $('a[name="btn-cart"]').click(function () {
+        var proId = $(this).data('proid');
+        $("#proIdR").val(proId);
+        $("#frmRemove").submit();
+     });
+
+    $(".quantity").change(function () {
+        var soluong = $(this).val();
+        var proId = $(this).data('proid');
+        $("#quantity").val(soluong);
+        $("#proIdU").val(proId);
+        $("#frmUpdate").submit();
+    });
+
+    $("#btnThanhToan").click(function () {
+        var data_logged = $(this).attr("data-logged");
+        if (data_logged === "true") {
+            $("#frmCheckout").submit();
+        }
+        else {
+            $("#error-login").html("Vui lòng đăng nhập để thanh toán.");
+            $("#error-login").css("color", "red");
+            $(".overlay").fadeIn("slow");
+            return false;
+        }
+    });
+
+</script>

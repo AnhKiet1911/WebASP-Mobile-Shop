@@ -1,0 +1,23 @@
+﻿@using LTW.Models
+@model IList<SanPham>
+
+<div id="top" class="callbacks_container">
+    <ul class="rslides" id="slider4">
+        @{
+            int i = 1;
+        }
+        @foreach (var sanPham in Model)
+        {
+            <li>
+                <img src="../public/images/slide@{@i}.jpg" alt="">
+                <div class="caption">
+                    <div class="slide-text-info">
+                    </div>
+                </div>
+            </li>
+        i++;
+    } 
+    </ul>
+</div>
+<div class="clearfix"> </div>
+

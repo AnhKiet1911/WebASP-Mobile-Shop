@@ -1,0 +1,124 @@
+﻿<link href="~/Public/css/register.css" rel="stylesheet" />
+<!--Contact Form -->
+<style type="text/css">
+
+.error {
+    border: 1px solid #f00 !important;
+}
+
+.valid {
+    border: 1px solid #0ff !important;
+}
+
+</style>
+<div id="contactdiv">
+    <form class="form" method="post" id="contact" name="frmRegister">
+        <img src="../public/images/button_cancel.png"  class="img" id="cancel"/>
+        <h3 class="h3-form">Đăng Ký</h3>
+        <label id="lb-error"></label>
+
+        
+        <label>Username: <span>*</span></label>
+        <input type="text" id="UsernameR" name="Username" placeholder="Username" />
+        
+        <label>Password: <span>*</span></label>
+        <input type="password" id="PasswordR" name="Password" placeholder="Password"/>
+        
+        <label>Email: <span>*</span></label>
+        <input type="email" id="Email" name="Email" placeholder="Email" />
+
+        <label>FullName: <span>*</span></label>
+        <input type="text" id="FullName" name="FullName" placeholder="Full name" />
+
+        <label>Birthday: <span>*</span></label>
+        <input type="date" id="Birthday" name="Birthday" placeholder="" />
+
+        <div class="g-recaptcha" data-sitekey="6LdoPSIUAAAAAEwQBVWdSSZ_3pZAJotyZVB9faYE" style="transform:scale(0.92);-webkit-transform:scale(0.92);
+transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
+        <input type="submit" id="btnRegister" name="btnRegister" value="Đăng ký" />
+        <input type="button" id="btnCancel" name="btnCancel" value="Cancel" />
+        <br />
+    </form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#contact').validate({
+            errorClass: "error",
+            validClass: "valid",
+            errorPlacement: function(){
+                return false;
+            },
+            rules: {
+                Username: {
+                    required: true,
+                    minlength: 6,
+                },
+                Password: {
+                    required: true,
+                    minlength: 6,
+                },
+                Email: {
+                    email: true,
+                    required: true,
+                },
+                FullName: {
+                    required: true,
+                    maxlength: 30,
+                },
+                Birthday: {
+                    required: true,
+                }
+            },
+            
+            submitHandler: function (form) {
+                var data = {
+                    "Username": $("#UsernameR").val(),
+                    "Password": $("#PasswordR").val(),
+                    "Email": $("#Email").val(),
+                    "FullName": $("#FullName").val(),
+                    "Birthday": $("#Birthday").val(),
+                    "g_recaptcha_response": grecaptcha.getResponse(),
+                };
+                $("#btnRegister").val("Connecting...")
+                $.ajax({
+                        
+                    url: "@Url.Action("Register", "User")",
+                    type: "POST",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    contentType: "application/json",
+                    success: function (responseR) {
+                        if (responseR.captcha == "false") {
+                            $("#contact").effect("pulsate", { times: 4 }, 800);
+                            $(".g-recaptcha > div").css("border", "1px solid red");
+                            $("#btnRegister").val("Sign in");
+                            
+                        }
+                        else {
+                            $(".g-recaptcha > div").css("border", "none");
+                            if (responseR.data == "exist") {
+                                $("#contact").effect("shake");
+                                $("#lb-error").text("Error: Username hoặc email đã tồn tại");
+                                $("#lb-error").css("color", "red");
+                                $("#btnRegister").val("Sign in");
+                            }
+                            else {
+                                $("#lb-error").text("Success: Đăng ký thành công");
+                                $("#lb-error").css("color", "green");
+                                $("#contactdiv").delay(5000);
+                                $("#contactdiv").fadeOut("slow");
+                                $(".overlay").delay(5000);
+                                $("#error-login").html("Vui lòng đăng nhập.");
+                                $("#error-login").css("color", "green");
+                                $(".overlay").fadeIn("slow");
+                            }
+                        }
+                    }
+                });
+             return false;
+            }
+        });
+        
+
+    });
+</script>

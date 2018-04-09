@@ -1,0 +1,120 @@
+﻿@model LTW.Models.SanPham
+@using LTW.Areas.Admin.Lib
+
+@{
+    ViewBag.Title = "addProductMobile";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-warning">
+    <div class="panel-heading text-center">
+        <h2>Thêm sản phẩm điện thoại</h2>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("addProductMobile", "Products", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.TenSanPham, "Tên sản phẩm:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(m => m.TenSanPham, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-offset-4">
+                        @Html.ValidationMessageFor(m => m.TenSanPham)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.IDHang, "Hãng:", new { @class = "col-md-4 control-label" })
+                    @Html.DropDownListFor(m => m.IDHang, Html.GetSLICat() ,new { @class = "col-md-5" })
+                    @Html.ValidationMessageFor(m => m.IDHang)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.Gia, "Giá:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(m => m.Gia, new { @class = "form-control", type = "number", Min = "1" })
+                    </div>
+                    <div class="col-md-offset-4">
+                        @Html.ValidationMessageFor(m => m.Gia)
+                        </div>
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(m => m.SoLuong, "Số lượng:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-7">
+                        @Html.TextBoxFor(m => m.SoLuong, new { @class = "form-control" , type = "number", Min = "1" })
+                    </div>
+                    <div class="col-md-offset-4">
+                        @Html.ValidationMessageFor(m => m.SoLuong)
+                    </div>
+                </div>
+            </div>
+          
+            <div class="form-group">
+                <div class="col-md-6">
+                    @Html.Label("Hình lớn:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-7">
+                        <input type="file" name="imgLg" id="input-imgLg" />
+                    </div>
+                    <div class="col-md-12">
+                        <div style="color: #FF0000; padding-left: 15px;" class="col-md-offset-4 img-error">
+                            @ViewBag.img
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    @Html.Label("Hình nhỏ:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-7">
+                        <input type="file" name="imgSm" id="input-imgSm" />
+                    </div>
+                    <div class="col-md-12">
+                        <div style="color: #FF0000; padding-left: 15px;" class="col-md-offset-4 img-error">
+                            @ViewBag.img
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.MoTaNgan, "Mô tả ngắn:", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-7">
+                        @Html.TextAreaFor(m => m.MoTaNgan, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-offset-4">
+                        @Html.ValidationMessageFor(m => m.MoTaNgan)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.FullDesRaw, "Mô tả chi tiết:", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-7">
+                        @Html.TextAreaFor(m => m.FullDesRaw, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-offset-4">
+                        @Html.ValidationMessageFor(m => m.FullDesRaw)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-8">
+                    <input type="submit" class="btn btn-success" value="Thêm" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+        $("#input-imgLg").fileinput({
+            showUpload: false,
+    });
+    $("#input-imgSm ").fileinput({
+        showUpload: false,
+    });
+    $(document).ready(function () {
+        $('#FullDesRaw').summernote();
+    });
+</script>
+

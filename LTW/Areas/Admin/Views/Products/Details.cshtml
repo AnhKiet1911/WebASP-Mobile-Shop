@@ -1,0 +1,48 @@
+﻿@model LTW.Models.SanPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-warning">
+    <div class="panel-heading text-center">
+        <h2> <h2>Sản phẩm @Model.TenSanPham</h2></h2>
+    </div>
+
+    <div class="panel-body">
+        @using (Html.BeginForm("Details", "Products", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="col-md-offset-5">
+                <div style="color: #4cff00;">@ViewBag.comple</div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.TenSanPham, "Tên sản phẩm", new { @class = "col-md-2" })
+                <div class="col-md-6">
+                    @Html.DisplayFor(m => m.TenSanPham)
+                </div>
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Gia, "Giá", new { @class = "col-md-2" })
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.Gia, new { @class = "form-control", type = "money", Min = "1" })
+                </div>
+                @Html.ValidationMessageFor(m => m.Gia)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.SoLuong, "Số lượng", new { @class = "col-md-2" })
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.SoLuong, new { @class = "col-md-2 form-control", type = "number", Min = "1" })
+                </div>
+                @Html.ValidationMessageFor(m => m.SoLuong)
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-6">
+                    <input type="submit" class="btn btn-success" value="Change" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

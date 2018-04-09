@@ -1,0 +1,51 @@
+﻿@model IEnumerable<LTW.Models.OrderUser>
+@{
+    ViewBag.Title = "getAllOrder";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    .Tt-1 {
+        background: #b6ff00 !important;
+    }
+
+    .Tt-0 {
+        background: #f84329 !important;
+    }
+
+    .trangthai {
+        background: #ff4848 !important;
+    }   
+</style>
+<div class="panel panel-warning">
+    <div class="panel-heading text-center">
+        <h2> Danh sách Đơn hàng</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>STT</th>
+                <th>Tên tài khoản</th>
+                <th>Tên người mua</th>
+                <th>Ngày mua</th>
+                <th>Tổng tiền</th>
+                <th>Chi tiết</th>
+            </tr>
+            @{int i = 0;
+            }
+            @foreach (var p in Model)
+            {
+                i++;
+                <tr class="Tt-@p.TrangThai">
+                    <td>@i</td>
+                    <td>@p.Username</td>
+                    <td>@p.Fullname</td>
+                    <td>@p.OrderDate</td>
+                    <td>@p.Total</td>
+                    <td><a href="@Url.Action("OrderDetail", new { ID = @p.OrderId })"> Xem </a></td>
+                    <td><a href="@Url.Action("Change", new { ID = @p.OrderId })"> Xác nhận </a></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

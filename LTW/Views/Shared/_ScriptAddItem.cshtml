@@ -1,0 +1,7 @@
+﻿<script type="text/javascript">
+    $('a[class="product-btn"]').click(function () {
+        var proId = $(this).data('proid');
+        $("#proId").val(proId);
+        $("#frmAddCart").submit();
+    });
+</script>

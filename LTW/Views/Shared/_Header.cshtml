@@ -1,0 +1,112 @@
+﻿@using LTW.Libs
+@Html.Partial("_Login")
+@Html.Partial("_Register")
+<!----container---->
+<div class="container">
+    <!----top-header---->
+    <div class="top-header">
+        <div class="logo">
+            <a href="@Url.Action("Index", "Home")"><img src="../public/images/logo.png" title="barndlogo" /></a>
+        </div>
+        <div class="top-header-info">
+            <div class="top-contact-info">
+                <ul class="unstyled-list list-inline">
+                    <li><span class="phone"> </span>090 - 223 44 66</li>
+                    <li><span class="mail"> </span><a href="#">help@trendd.com</a></li>
+                    <div class="clearfix"> </div>
+                </ul>
+            </div>
+            
+            <div class="cart-details">
+                <div class="add-to-cart">
+                    <ul class="unstyled-list list-inline">
+                        <li>
+                            <a href="@Url.Action("detailCart", "Cart")"><span class="cart"></span></a>
+                            <ul class="cart-sub">
+                                <li><p>@Html.getCartItems().countCartItems() Sản phẩm</p></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="login-rigister">
+                @if (Html.isLogged() == false)
+                {
+                    <ul class="unstyled-list list-inline">
+                        <li><a href="javascript:" class="overlayLink login" data-action="User/Login">Đăng nhập</a>
+                        </li>
+                        <li><a class="rigister" id="onclick" href="javascript:">Đăng Ký <span> </span></a></li>
+                        <div class="clearfix"> </div>
+                    </ul>
+                }
+                else
+                {
+                    <div class="dropdown" style="z-index:1000; margin-right: 55px; margin-top: 5px;">
+                        <button class="btn btn-default dropdown-toggle" style="padding-right:25px; padding-left:25px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            @Html.getUsername()
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="@Url.Action("InfoUser", "User", new { user = Html.getUser()})">Thông tin</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action("ChangePass", "User", new { user = Html.getUsername()})">Đổi mật khẩu</a></li>
+                            @if (Html.getPer() == "1")
+                            {
+                                <li role="separator" class="divider"></li>
+                                <li><a href="@Url.Action("Products/getAllMobile", "Admin")">Trang quản trị</a></li>
+                            }
+                            <li role="separator" class="divider"></li>
+                            <li><a href="@Url.Action("Logout", "User")">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                }
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <!----//top-header---->
+    <!---top-header-nav---->
+    <div class="top-header-nav">
+        <!----start-top-nav---->
+        <nav class="top-nav main-menu">
+            @Html.Action("getListCategory", "Category")
+            <a href="#" id="pull"><img src="../public/images/nav-icon.png" title="menu" /></a>
+        </nav>
+        <!----End-top-nav---->
+        <!---top-header-search-box--->
+        <div class="top-header-search-box">
+            <form method="get" action="@Url.Action("findProducts", "Product")">
+                <input type="text" placeholder="Search" name="query" required maxlength="20">
+                <input type="submit" value=" ">
+            </form>
+        </div>
+        <!---top-header-search-box--->
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!--//top-header-nav---->
+<!----start-slider-script---->
+<script src="~/Public/js/responsiveslides.min.js"></script>
+<script>
+			    // You can also use "$(window).load(function() {"
+			    $(function () {
+			      // Slideshow 4
+			      $("#slider4").responsiveSlides({
+			        auto: true,
+			        pager: true,
+			        nav: true,
+			        speed: 500,
+			        namespace: "callbacks",
+			        before: function () {
+			          $('.events').append("<li>before event fired.</li>");
+			        },
+			        after: function () {
+			          $('.events').append("<li>after event fired.</li>");
+			        }
+			      });
+
+			    });
+</script>

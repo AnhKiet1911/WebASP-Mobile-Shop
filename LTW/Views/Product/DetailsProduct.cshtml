@@ -1,0 +1,189 @@
+﻿@model LTW.Models.SanPham
+
+@{
+    ViewBag.Title = "Sản phẩm " + Model.TenSanPham;
+}
+<div class="product-details">
+    <div class="container">
+        <div class="product-details-row1">
+            <div class="product-details-row1-head">
+                <h2>@Model.TenSanPham</h2>
+               
+            </div>
+            <div class="col-md-4 product-details-row1-col1">
+                <!----details-product-slider--->
+                <!-- Include the Etalage files -->
+                <link rel="stylesheet" href="~/Public/css/etalage.css">
+                <script src="~/Public/js/jquery.etalage.min.js"></script>
+                <!-- Include the Etalage files -->
+                <script>
+								jQuery(document).ready(function($){
+
+									$('#etalage').etalage({
+										thumb_image_width: 300,
+										thumb_image_height: 400,
+										source_image_width: 900,
+										source_image_height: 1000,
+										show_hint: true,
+										click_callback: function(image_anchor, instance_id){
+											alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+										}
+									});
+									// This is for the dropdown list example:
+									$('.dropdownlist').change(function(){
+										etalage_show( $(this).find('option:selected').attr('class') );
+									});
+
+							});
+                </script>
+                <!----//details-product-slider--->
+                <div class="details-left">
+                    <div class="details-left-slider">
+                        <ul id="etalage">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img class="etalage_thumb_image" src="../public/images/products/sp/@Model.ID/nho.png" />
+                                    <img class="etalage_source_image" src="../public/images/products/sp/@Model.ID/lon.png" />
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 product-details-row1-col2">
+                
+                <div class="product-price">
+                    <div class="product-price-left text-right">
+                        <h5>@string.Format("{0:C0}", Model.Gia)</h5>
+                    </div>
+                    <div class="product-price-right">
+                        <a href="#"><span> </span></a>
+                        <label> save <b>40%</b></label>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="product-price-details">
+                    <form method="post" action="@Url.Action("addItems", "Cart")">
+                        <p class="text-right">@Model.MoTaNgan</p>
+                        <div class="clearfix"> </div>
+                        <span>Lượt xem: @Model.LuotXem</span> <br />
+                        <span>Số lượng: @Model.SoLuong</span><br />
+                        <span>Ngày cập nhật: @Model.NgayCapNhat</span><br />
+                        <div class="product-size-qty">
+                            <div class="pro-qty">
+                                <input type="hidden" name="proId" value="@Model.ID" />
+                                <span>Qty:</span>
+                                <select name="sltQuantity">
+                                    @for (int i = 1; i <= 10; i++)
+                                    {
+                                        <option value="@i">@i</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                        <div class="product-cart-share">
+                            <div class="add-cart-btn">
+                                @if (Model.SoLuong == 0)
+                                {
+                                    <input type="button" name="btnClose" value="Hết Hàng" />
+                                }
+                                else
+                                {
+                                    <input type="submit" name="btnAddItems" value="Add to cart" />
+                                }
+                               
+                            </div>
+                            <ul class="product-share text-right">
+                                <h3>Share This:</h3>
+                                <ul>
+                                    <li><a class="share-face" href="#"><span> </span> </a></li>
+                                    <li><a class="share-twitter" href="#"><span> </span> </a></li>
+                                    <li><a class="share-google" href="#"><span> </span> </a></li>
+                                    <li><a class="share-rss" href="#"><span> </span> </a></li>
+                                    <div class="clear"> </div>
+                                </ul>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+            <!--//product-details--->
+        </div>
+        <!---- product-details ---->
+        <div class="product-tabs">
+            <!--Horizontal Tab-->
+            <div id="horizontalTab">
+                <ul>
+                    <li><a href="#tab-1">Chi Tiết</a></li>
+                    <li><a href="#tab-2">Hoàn Trả</a></li>
+                    <li><a href="#tab-3">Bình Luận</a></li>
+                </ul>
+                <div id="tab-1" class="product-complete-info">
+                    <h3>DESCRIPTION:</h3>
+                    <p>@Model.MoTaNgan</p>
+                    <span>DETAILS:</span>
+                    <div class="product-fea">
+                        <p>@Html.Raw(@Model.MoTaChiTiet)</p>
+                   </div>
+                </div>
+                <div id="tab-2" class="product-complete-info">
+                    <h3>XIN CHÀO:</h3>
+                    <p>- Tận hưởng 30 ngày miễn phí đổi trả cho sản phẩm này.
+                    Lưu ý các sản phẩm cung cấp bởi các nhà bán hàng (Marketplace), hàng nhập khẩu từ Singapore/ Malaysia sẽ không được áp dụng chính sách đổi sản phẩm.
+                    <br>
+                    Nếu bạn có thắc mắc về sản phẩm, vui lòng liên hệ với bộ phận Chăm Sóc Khách Hàng tại webshop@gmail.com.
+                    </p>
+               </div>
+                <div id="tab-3" class="product-complete-info">
+                     <span>Comment</span>
+                    <div class="product-fea">
+                        <div class="fb-comments" data-href="http://localhost:50535/Product/DetailsProduct?proId=@Model.ID" data-width="700" data-numposts="5"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Responsive Tabs JS -->
+            <script src="~/Public/js/jquery.responsiveTabs.js" type="text/javascript"></script>
+
+            <script type="text/javascript">
+				        $(document).ready(function () {
+				            $('#horizontalTab').responsiveTabs({
+				                rotate: false,
+				                startCollapsed: 'accordion',
+				                collapsible: 'accordion',
+				                setHash: true,
+				                disabled: [3,4],
+				                activate: function(e, tab) {
+				                    $('.info').html('Tab <strong>' + tab.id + '</strong> activated!');
+				                }
+				            });
+
+				            $('#start-rotation').on('click', function() {
+				                $('#horizontalTab').responsiveTabs('active');
+				            });
+				            $('#stop-rotation').on('click', function() {
+				                $('#horizontalTab').responsiveTabs('stopRotation');
+				            });
+				            $('#start-rotation').on('click', function() {
+				                $('#horizontalTab').responsiveTabs('active');
+				            });
+				            $('.select-tab').on('click', function() {
+				                $('#horizontalTab').responsiveTabs('activate', $(this).val());
+				            });
+
+				        });
+            </script>
+        </div>
+        <!-- //product-details ---->
+     
+    </div>
+    
+</div>
+@Html.Partial("_frmAddItem")
+<div class="container">
+    @Html.Action("get5ProductsSameKind", "Product")
+    @Html.Action("get5ProductsSameBrand", "Product")
+</div>

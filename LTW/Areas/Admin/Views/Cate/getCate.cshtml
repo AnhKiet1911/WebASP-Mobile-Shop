@@ -1,0 +1,40 @@
+﻿@using LTW.Models
+@model IList<HangSanXuat>
+
+
+@{
+    ViewBag.Title = "getCate";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel panel-warning">
+    <div class="panel-heading text-center">
+        <h2> Danh sách Hãng sản xuất</h2>
+    </div>
+    <div class="panel-heading">
+        <a class="addPro" href="@Url.Action("addCate", "Cate")">Thêm hãng sản xuất</a>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>STT</th>
+                <th>Hãng</th>
+            </tr>
+            @{int i = 0;
+            }
+            @foreach (var p in Model)
+            {
+                i++;
+                <tr>
+                    <td>@i</td>
+                    <td>@p.TenHang</td>
+                    <td><a href="@Url.Action("EditCat", new { CatID = @p.ID })">Edit</a></td>
+                    <td><a href="@Url.Action("DeleteCat", new { CatID = @p.ID })">Delete</a></td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+

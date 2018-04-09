@@ -1,0 +1,11 @@
+﻿
+
+@{
+    ViewBag.Title = "Trang chủ - website thương mại điện tử";
+}
+@Html.Action("getSlider", "Home")
+@Html.Partial("_BannerTop")
+@Html.Action("getTop8NewProducts", "Product")
+@Html.Action("getTop8ProductsManyViews", "Product")
+@Html.Action("getTop8ProductsSellLot", "Product")
+

@@ -1,0 +1,58 @@
+﻿@model LTW.Models.User
+
+@{
+    ViewBag.Title = "InfoUser";
+}
+
+<div class="panel panel-warning">
+    <div class="panel-heading text-center">
+        <h2>Thông tin cá nhân</h2>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("InfoUser", "User", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="col-md-offset-5">
+                <div style="color: #4cff00;">@ViewBag.comple</div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.FullName, "Tên đầy đủ:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", type = "text", id = "FullName", name = "FullName" ,placeholder = "Full name" })
+                    </div>
+                    <div class="col-md-offset-4">
+                        @Html.ValidationMessageFor(m => m.FullName)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Email, "Email:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email", id = "Email", name = "Email", placeholder = "Email" })
+                    </div>
+                    <div class="col-md-offset-4">
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </div>
+                </div>  
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.LabelFor(m => m.Birthday, "Birthday:", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(m => m.Birthday, new { @class = "form-control", id = "Birthday", name = "Birthday", placeholder = "dd/mm/yyyy" })
+                    </div>
+                    <div class="col-md-offset-4">
+                        @Html.ValidationMessageFor(m => m.Birthday)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div style="padding-left: 20px;" class="col-md-offset-4">
+                    <input type="submit" class="btn btn-success" value="Sửa" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
